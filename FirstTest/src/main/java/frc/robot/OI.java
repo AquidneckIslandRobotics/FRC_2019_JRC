@@ -7,36 +7,80 @@
 
 package frc.robot;
 
+
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.utils.XboxTriggerButton;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-  //// CREATING BUTTONS
-  // One type of button is a joystick button which is any button on a
-  //// joystick.
-  // You create one by telling it which joystick it's on and which button
-  // number it is.
-  // Joystick stick = new Joystick(port);
-  // Button button = new JoystickButton(stick, buttonNumber);
+	
+	public static Joystick DriverStick = new Joystick(0);
+	public static XboxController ManipulatorStick = new XboxController(1);
+	
+	public Button driverA;
+	public Button driverB;
+	public Button driverX;
+	public Button driverY;
+	public Button driverRB;
+	public Button driverRT;
+	public Button driverLB;
+	public Button driverLT;
+	public Button driverDpadUp;
+	public Button driverDpadDown;
+	public Button driverDpadRight;
+	public Button driverDpadLeft;
+	public Button driverStart;
+	
+	public Button manipulatorA;
+	public Button manipulatorB;
+	public Button manipulatorX;
+	public Button manipulatorY;
+	public Button manipulatorLB;
+	public Button manipulatorRB;
+	public XboxTriggerButton manipulatorLT;
+	public XboxTriggerButton manipulatorRT;
+	public Button manipulatorBack;
+	
+	
+	public OI() {
+		//DRIVER BUTTONS - Logitech Controller
+		driverA = new JoystickButton(DriverStick, 2);
+		driverB = new JoystickButton(DriverStick, 3);
+		driverX = new JoystickButton(DriverStick, 1);
+		driverY = new JoystickButton(DriverStick, 4);
+		driverRB = new JoystickButton(DriverStick, 6); 
+		driverRT = new JoystickButton(DriverStick, 8);
+		driverLB = new JoystickButton(DriverStick, 5);
+		driverLT = new JoystickButton(DriverStick, 7);
+		driverDpadUp = new JoystickButton(DriverStick, 1);
+		driverDpadDown= new JoystickButton(DriverStick, 1);
+		driverDpadRight= new JoystickButton(DriverStick, 1);
+		driverDpadLeft= new JoystickButton(DriverStick, 1);
+		driverStart = new JoystickButton(DriverStick, 10);
+		
 
-  // There are a few additional built in buttons you can use. Additionally,
-  // by subclassing Button you can create custom triggers and bind those to
-  // commands the same as any other Button.
+		
 
-  //// TRIGGERING COMMANDS WITH BUTTONS
-  // Once you have a button, it's trivial to bind it to a button in one of
-  // three ways:
+		
+		//MANIPULATOR BUTTONS - Xbox Controller
+		manipulatorA = new JoystickButton(ManipulatorStick, 1);
+		manipulatorX = new JoystickButton(ManipulatorStick, 3);
+		manipulatorB = new JoystickButton(ManipulatorStick, 2);
+		manipulatorY = new JoystickButton(ManipulatorStick, 4);
+		manipulatorLB = new JoystickButton(ManipulatorStick, 5);
+		manipulatorRB = new JoystickButton(ManipulatorStick, 6);
+		manipulatorLT = new XboxTriggerButton(ManipulatorStick, 2);
+		manipulatorRT = new XboxTriggerButton(ManipulatorStick, 3);
+		manipulatorBack = new JoystickButton(ManipulatorStick, 7);
+		
 
-  // Start the command when the button is pressed and let it run the command
-  // until it is finished as determined by it's isFinished method.
-  // button.whenPressed(new ExampleCommand());
-
-  // Run the command while the button is being held down and interrupt it once
-  // the button is released.
-  // button.whileHeld(new ExampleCommand());
-
-  // Start the command when the button is released and let it run the command
-  // until it is finished as determined by it's isFinished method.
-  // button.whenReleased(new ExampleCommand());
+	}
+	
 }
